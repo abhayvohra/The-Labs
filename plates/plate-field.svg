@@ -1,0 +1,76 @@
+<svg viewBox="0 0 760 440" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+  <filter id="grain" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" result="n"></feTurbulence>
+    <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"></feColorMatrix>
+    <feComponentTransfer><feFuncA type="discrete" tableValues="0 0 0 0.08 0 0.04 0 0"></feFuncA></feComponentTransfer>
+  </filter>
+  <radialGradient id="vig" cx="50%" cy="48%" r="66%">
+    <stop offset="58%" stop-color="#3a2c12" stop-opacity="0"></stop>
+    <stop offset="100%" stop-color="#3a2c12" stop-opacity="0.18"></stop>
+  </radialGradient></defs>
+  <rect width="760" height="440" fill="#ece1c6"></rect>
+  <g opacity="0.09" fill="#a9874a"><circle cx="110" cy="380" r="26"></circle><circle cx="690" cy="80" r="22"></circle><circle cx="380" cy="60" r="16"></circle></g>
+  <g stroke="#3b2f20" stroke-width="1" fill="none" opacity="0.28" stroke-dasharray="2 5">
+    <line x1="380" y1="228" x2="200" y2="150"></line><line x1="380" y1="228" x2="568" y2="150"></line>
+    <line x1="380" y1="228" x2="200" y2="312"></line><line x1="380" y1="228" x2="568" y2="312"></line>
+    <path d="M200,150 L568,150 L568,312 L200,312 Z"></path>
+  </g>
+  <g transform="translate(380,228)">
+    <circle r="12" fill="#4f6b5e" stroke="#2e2416" stroke-width="1.4"></circle>
+    <circle r="5.5" fill="none" stroke="#efe7d2" stroke-width="1" opacity="0.7"></circle>
+    <circle r="1.5" fill="#2e2416"></circle>
+  </g>
+  
+  <g stroke="#2e2416" stroke-width="1.3">
+    <g stroke-width="1" opacity="0.5" fill="none">
+      <line x1="200" y1="108" x2="160" y2="150"></line><line x1="200" y1="108" x2="240" y2="148"></line>
+      <line x1="160" y1="150" x2="176" y2="192"></line><line x1="240" y1="148" x2="224" y2="194"></line>
+      <line x1="160" y1="150" x2="224" y2="194"></line><line x1="176" y1="192" x2="224" y2="194"></line>
+    </g>
+    <circle cx="200" cy="108" r="9" fill="#4f6b5e"></circle>
+    <circle cx="160" cy="150" r="6" fill="#b8893f"></circle>
+    <circle cx="240" cy="148" r="6" fill="#8f3b2e"></circle>
+    <circle cx="176" cy="192" r="6" fill="#5b7791"></circle>
+    <circle cx="224" cy="194" r="6" fill="#c2a23f"></circle>
+  </g>
+  
+  <g stroke="#2e2416" stroke-width="1.3" fill="none">
+    <g stroke-width="0.9" opacity="0.5">
+      <line x1="548" y1="150" x2="600" y2="134"></line><line x1="548" y1="150" x2="600" y2="150"></line><line x1="548" y1="150" x2="600" y2="166"></line>
+      <line x1="600" y1="134" x2="650" y2="118"></line><line x1="600" y1="150" x2="650" y2="150"></line><line x1="600" y1="166" x2="650" y2="182"></line>
+    </g>
+    <path d="M520,150 Q548,131 576,150 Q548,169 520,150 Z" fill="#f4eedd"></path>
+    <circle cx="548" cy="150" r="9" fill="#4f6b5e"></circle>
+    <circle cx="548" cy="150" r="3.8" fill="#241c12" stroke="none"></circle>
+    <path d="M600,128 Q612,150 600,172 Q588,150 600,128 Z" fill="#5b7791" fill-opacity="0.25"></path>
+    <g fill="#3b2f20" stroke="none">
+      <circle cx="636" cy="138" r="1.5"></circle><circle cx="648" cy="150" r="1.4"></circle><circle cx="640" cy="164" r="1.3"></circle>
+      <circle cx="660" cy="146" r="1.1"></circle><circle cx="655" cy="160" r="1"></circle><circle cx="668" cy="134" r="0.9"></circle>
+    </g>
+  </g>
+  
+  <g stroke="#2e2416" stroke-width="1.3">
+    <rect x="150" y="272" width="80" height="80" fill="#f3ecda"></rect>
+    <g stroke-width="0.9" opacity="0.55">
+      <line x1="177" y1="272" x2="177" y2="352"></line><line x1="204" y1="272" x2="204" y2="352"></line>
+      <line x1="150" y1="299" x2="230" y2="299"></line><line x1="150" y1="326" x2="230" y2="326"></line>
+    </g>
+    <path d="M156,296 C180,292 196,332 226,324" fill="none" stroke="#c0432a" stroke-width="1.6"></path>
+    <g fill="#4f6b5e" stroke-width="0.6"><circle cx="166" cy="312" r="2.2"></circle><circle cx="190" cy="312" r="2.2"></circle><circle cx="214" cy="312" r="2.2"></circle></g>
+  </g>
+  
+  <g fill="none" stroke="#3b2f20" stroke-width="1.9" stroke-linecap="round">
+    <path d="M570,362 C570,340 570,326 570,300"></path><path d="M570,300 L570,278"></path>
+    <path d="M570,322 C552,310 538,300 528,288"></path><path d="M570,322 C588,310 602,300 612,288"></path>
+  </g>
+  <ellipse cx="570" cy="364" rx="8" ry="11" fill="#b8893f" stroke="#2e2416" stroke-width="1.3"></ellipse>
+  <g stroke="#2e2416" stroke-width="1.3">
+    <circle cx="570" cy="274" r="8" fill="#4f6b5e"></circle>
+    <circle cx="526" cy="286" r="6" fill="#b8893f"></circle>
+    <circle cx="614" cy="286" r="6" fill="#5b7791"></circle>
+  </g>
+  
+  <rect width="760" height="440" filter="url(#grain)"></rect>
+  <rect width="760" height="440" fill="url(#vig)"></rect>
+</svg>

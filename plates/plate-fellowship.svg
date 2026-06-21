@@ -1,0 +1,36 @@
+<svg viewBox="0 0 600 440" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+  <filter id="grain" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" result="n"></feTurbulence>
+    <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"></feColorMatrix>
+    <feComponentTransfer><feFuncA type="discrete" tableValues="0 0 0 0.08 0 0.04 0 0"></feFuncA></feComponentTransfer>
+  </filter>
+  <radialGradient id="vig" cx="50%" cy="48%" r="66%">
+    <stop offset="58%" stop-color="#3a2c12" stop-opacity="0"></stop>
+    <stop offset="100%" stop-color="#3a2c12" stop-opacity="0.18"></stop>
+  </radialGradient></defs>
+  <rect width="600" height="440" fill="#ece1c6"></rect>
+  <g opacity="0.1" fill="#a9874a"><circle cx="100" cy="120" r="22"></circle><circle cx="500" cy="140" r="18"></circle><circle cx="120" cy="360" r="20"></circle></g>
+  <g fill="none" stroke="#5b4a33" stroke-width="1.3" opacity="0.8">
+    <path d="M300,402 C280,426 250,434 222,448"></path><path d="M300,402 C300,432 300,442 300,456"></path>
+    <path d="M300,402 C320,426 350,434 378,448"></path>
+  </g>
+  <g fill="none" stroke="#3b2f20" stroke-width="2.2" stroke-linecap="round">
+    <path d="M300,402 C300,360 300,330 300,250"></path><path d="M300,250 L300,156"></path>
+    <path d="M300,300 C268,280 230,250 202,212"></path><path d="M300,300 C332,280 370,250 398,212"></path>
+    <path d="M300,250 C282,232 252,200 238,182"></path><path d="M300,250 C318,232 348,200 362,182"></path>
+  </g>
+  <g fill="#6b8169" stroke="#2e2416" stroke-width="1">
+    <path d="M256,256 C266,248 282,250 290,258 C280,266 264,266 256,256 Z"></path>
+    <path d="M344,256 C334,248 318,250 310,258 C320,266 336,266 344,256 Z"></path>
+  </g>
+  <ellipse cx="300" cy="404" rx="11" ry="15" fill="#b8893f" stroke="#2e2416" stroke-width="1.4"></ellipse>
+  <line x1="300" y1="392" x2="300" y2="416" stroke="#2e2416" stroke-width="0.8"></line>
+  <g fill="#8a9a7b" stroke="#2e2416" stroke-width="1">
+    <circle cx="262" cy="250" r="4"></circle><circle cx="338" cy="250" r="4"></circle>
+  </g>
+  <g><g transform="translate(300 150)"><circle r="15" fill="#4f6b5e" stroke="#2e2416" stroke-width="1.4"></circle><circle r="6.9" fill="none" stroke="#efe7d2" stroke-width="1" opacity="0.7"></circle><circle r="1.4" fill="#2e2416"></circle></g><g transform="translate(202 208)"><circle r="10" fill="#b8893f" stroke="#2e2416" stroke-width="1.4"></circle><circle r="4.6" fill="none" stroke="#efe7d2" stroke-width="1" opacity="0.7"></circle><circle r="1.4" fill="#2e2416"></circle></g><g transform="translate(398 208)"><circle r="10" fill="#8f3b2e" stroke="#2e2416" stroke-width="1.4"></circle><circle r="4.6" fill="none" stroke="#efe7d2" stroke-width="1" opacity="0.7"></circle><circle r="1.4" fill="#2e2416"></circle></g><g transform="translate(238 178)"><circle r="8" fill="#5b7791" stroke="#2e2416" stroke-width="1.4"></circle><circle r="3.7" fill="none" stroke="#efe7d2" stroke-width="1" opacity="0.7"></circle><circle r="1.4" fill="#2e2416"></circle></g><g transform="translate(362 178)"><circle r="8" fill="#c2a23f" stroke="#2e2416" stroke-width="1.4"></circle><circle r="3.7" fill="none" stroke="#efe7d2" stroke-width="1" opacity="0.7"></circle><circle r="1.4" fill="#2e2416"></circle></g></g>
+  
+  <rect width="600" height="440" filter="url(#grain)"></rect>
+  <rect width="600" height="440" fill="url(#vig)"></rect>
+</svg>

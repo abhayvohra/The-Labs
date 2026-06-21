@@ -1,0 +1,28 @@
+<svg viewBox="0 0 600 440" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+  <filter id="grain" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" result="n"></feTurbulence>
+    <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"></feColorMatrix>
+    <feComponentTransfer><feFuncA type="discrete" tableValues="0 0 0 0.08 0 0.04 0 0"></feFuncA></feComponentTransfer>
+  </filter>
+  <radialGradient id="vig" cx="50%" cy="48%" r="66%">
+    <stop offset="58%" stop-color="#3a2c12" stop-opacity="0"></stop>
+    <stop offset="100%" stop-color="#3a2c12" stop-opacity="0.18"></stop>
+  </radialGradient>
+    <marker id="ah" markerWidth="10" markerHeight="9" refX="6.5" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#c0432a"></path>
+    </marker>
+  </defs>
+  <rect width="600" height="440" fill="#ece1c6"></rect>
+  <g opacity="0.1" fill="#a9874a"><circle cx="80" cy="90" r="22"></circle><circle cx="520" cy="100" r="18"></circle><circle cx="300" cy="400" r="22"></circle></g>
+  <g stroke="#2e2416" stroke-width="1.6">
+    <circle cx="300" cy="152" r="96" fill="#b8893f" fill-opacity="0.26"></circle>
+    <circle cx="214" cy="298" r="96" fill="#5b7791" fill-opacity="0.26"></circle>
+    <circle cx="386" cy="298" r="96" fill="#4f6b5e" fill-opacity="0.26"></circle>
+  </g>
+  <circle cx="300" cy="246" r="4" fill="#2e2416"></circle>
+  <g fill="none" stroke="#c0432a" stroke-width="2"><path d="M289.5,90.4 A150,150 0 0 1 449.2,224.3" marker-end="url(#ah)"></path><path d="M434.8,305.8 A150,150 0 0 1 239.0,377.0" marker-end="url(#ah)"></path><path d="M175.6,323.9 A150,150 0 0 1 211.8,118.6" marker-end="url(#ah)"></path></g>
+  
+  <rect width="600" height="440" filter="url(#grain)"></rect>
+  <rect width="600" height="440" fill="url(#vig)"></rect>
+</svg>

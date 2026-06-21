@@ -1,0 +1,35 @@
+<svg viewBox="0 0 600 440" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+  <filter id="grain" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" result="n"></feTurbulence>
+    <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"></feColorMatrix>
+    <feComponentTransfer><feFuncA type="discrete" tableValues="0 0 0 0.08 0 0.04 0 0"></feFuncA></feComponentTransfer>
+  </filter>
+  <radialGradient id="vig" cx="50%" cy="48%" r="66%">
+    <stop offset="58%" stop-color="#3a2c12" stop-opacity="0"></stop>
+    <stop offset="100%" stop-color="#3a2c12" stop-opacity="0.18"></stop>
+  </radialGradient></defs>
+  <rect width="600" height="440" fill="#ece1c6"></rect>
+  <g opacity="0.1" fill="#a9874a"><circle cx="80" cy="100" r="22"></circle><circle cx="520" cy="350" r="22"></circle></g>
+  <rect x="140" y="60" width="320" height="320" fill="#f3ecda" stroke="#2e2416" stroke-width="1.6"></rect>
+  <g stroke="#3b2f20" stroke-width="1" opacity="0.55"><line x1="220" y1="60" x2="220" y2="380"></line><line x1="300" y1="60" x2="300" y2="380"></line><line x1="380" y1="60" x2="380" y2="380"></line><line x1="140" y1="124" x2="460" y2="124"></line><line x1="140" y1="188" x2="460" y2="188"></line><line x1="140" y1="252" x2="460" y2="252"></line><line x1="140" y1="316" x2="460" y2="316"></line></g>
+  <g fill="none" stroke="#2e2416" stroke-width="1.3">
+    <rect x="250" y="34" width="40" height="16" fill="#b8893f"></rect>
+    <rect x="298" y="36" width="22" height="14"></rect>
+    <rect x="326" y="32" width="14" height="18" fill="#8f3b2e"></rect>
+  </g>
+  <line x1="300" y1="50" x2="300" y2="60" stroke="#2e2416" stroke-width="1"></line>
+  <path d="M168,76 C210,150 250,210 286,250 C322,290 372,330 432,368" fill="none" stroke="#6b8169" stroke-width="22" stroke-linecap="round" opacity="0.4"></path>
+  <g fill="#4f6b5e" stroke="#2e2416" stroke-width="0.7"><circle cx="160" cy="188" r="2.6"></circle><circle cx="190" cy="188" r="2.6"></circle><circle cx="220" cy="188" r="2.6"></circle><circle cx="250" cy="188" r="2.6"></circle><circle cx="280" cy="188" r="2.6"></circle><circle cx="310" cy="188" r="2.6"></circle><circle cx="340" cy="188" r="2.6"></circle><circle cx="370" cy="188" r="2.6"></circle><circle cx="400" cy="188" r="2.6"></circle><circle cx="430" cy="188" r="2.6"></circle></g>
+  <g fill="none" stroke="#c0432a" stroke-width="1.8" stroke-linecap="round">
+    <path d="M150,150 C210,140 230,200 300,196 C368,192 392,150 458,168"></path>
+    <path d="M196,372 C214,310 280,300 300,250 C322,196 372,196 392,140"></path>
+  </g>
+  <g transform="translate(434,92)" stroke="#2e2416" stroke-width="1" fill="none">
+    <line x1="0" y1="14" x2="0" y2="-14"></line>
+    <path d="M0,-14 L5,-4 L-5,-4 Z" fill="#2e2416"></path>
+  </g>
+  
+  <rect width="600" height="440" filter="url(#grain)"></rect>
+  <rect width="600" height="440" fill="url(#vig)"></rect>
+</svg>
