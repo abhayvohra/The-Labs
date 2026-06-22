@@ -497,7 +497,8 @@ footer a{color:#fff;text-decoration-color:var(--steel)}
         const data = new FormData(form);
         fetch('https://script.google.com/macros/s/AKfycbxpRP38zwkgXz5xpYPjRALDPkryAULJGHlocGB7bV5UZASqvqg52AkoYnvBoUlDwgCJ4Q/exec', {
           method: 'POST',
-          body: data
+          body: data,
+          mode: 'no-cors'
         }).then(function() {
           form.reset();
           status.textContent = 'Message sent. We\'ll be in touch.';
