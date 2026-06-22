@@ -464,20 +464,17 @@ footer a{color:#fff;text-decoration-color:var(--steel)}
              2. Replace each entry.XXXXXXX with the matching entry ID.
            The dropdown options must match your Google Form options exactly.
          ============================================================ -->
-    <iframe name="hidden-form-target" style="display:none;" aria-hidden="true"></iframe>
-    <form class="contact-form" id="contact-form"
-          action="https://docs.google.com/forms/d/e/1FAIpQLSfnFHtQbvcu-iVsqac7LYNzAfCQo0QQuYgQmu7lWuz3miVolw/formResponse"
-          method="POST" target="hidden-form-target">
+    <form class="contact-form" id="contact-form">
       <div class="form-grid">
         <label>Name
-          <input type="text" name="entry.945780790" required autocomplete="name">
+          <input type="text" name="name" required autocomplete="name">
         </label>
         <label>Email
-          <input type="email" name="entry.476595609" required autocomplete="email">
+          <input type="email" name="email" required autocomplete="email">
         </label>
       </div>
       <label>I'm interested in
-        <select name="entry.183809637" required>
+        <select name="interest" required>
           <option value="" disabled selected>Select one…</option>
           <option value="Research Fellowship">Research Fellowship</option>
           <option value="Short Course — Digital Interfaces">Short Course — Digital Interfaces</option>
@@ -488,23 +485,27 @@ footer a{color:#fff;text-decoration-color:var(--steel)}
         </select>
       </label>
       <label>Message
-        <textarea name="entry.1783525859" rows="5" required placeholder="If applying for a fellowship, tell us which programme and a little about your research background."></textarea>
+        <textarea name="message" rows="5" required placeholder="If applying for a fellowship, tell us which programme and a little about your research background."></textarea>
       </label>
-      <input type="hidden" name="fvv" value="1">
-      <input type="hidden" name="pageHistory" value="0">
-      <input type="hidden" name="fbzx" id="fbzx-field">
       <button class="btn solid form-btn" type="submit">Send message</button>
     </form>
     <script>
-      document.getElementById('fbzx-field').value = Math.floor(Math.random() * 9e15);
       document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
         const form = e.target;
         const status = document.getElementById('form-status');
-        setTimeout(function() {
+        const data = new FormData(form);
+        fetch('https://script.google.com/macros/s/AKfycbxpRP38zwkgXz5xpYPjRALDPkryAULJGHlocGB7bV5UZASqvqg52AkoYnvBoUlDwgCJ4Q/exec', {
+          method: 'POST',
+          body: data
+        }).then(function() {
           form.reset();
           status.textContent = 'Message sent. We\'ll be in touch.';
           status.style.display = 'block';
-        }, 500);
+        }).catch(function() {
+          status.textContent = 'Something went wrong. Please try again.';
+          status.style.display = 'block';
+        });
       });
     </script>
 
