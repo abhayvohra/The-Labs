@@ -494,7 +494,7 @@ footer a{color:#fff;text-decoration-color:var(--steel)}
         e.preventDefault();
         const form = e.target;
         const status = document.getElementById('form-status');
-        const data = new FormData(form);
+        const data = new URLSearchParams(new FormData(form));
         fetch('https://docs.google.com/forms/d/e/1FAIpQLSeiYxRql3wNF42Bt251QfgPTFLOs-RPNqzwH3X6dqHFQUv4gg/formResponse', {
           method: 'POST',
           mode: 'no-cors',
