@@ -490,9 +490,13 @@ footer a{color:#fff;text-decoration-color:var(--steel)}
       <label>Message
         <textarea name="entry.2119463089" rows="5" required placeholder="If applying for a fellowship, tell us which programme and a little about your research background."></textarea>
       </label>
+      <input type="hidden" name="fvv" value="1">
+      <input type="hidden" name="pageHistory" value="0">
+      <input type="hidden" name="fbzx" id="fbzx-field">
       <button class="btn solid form-btn" type="submit">Send message</button>
     </form>
     <script>
+      document.getElementById('fbzx-field').value = Math.floor(Math.random() * 9e15);
       document.getElementById('contact-form').addEventListener('submit', function(e) {
         const form = e.target;
         const status = document.getElementById('form-status');
