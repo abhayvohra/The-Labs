@@ -463,19 +463,17 @@ footer a{color:#fff;text-decoration-color:var(--steel)}
              2. Replace each entry.XXXXXXX with the matching entry ID.
            The dropdown options must match your Google Form options exactly.
          ============================================================ -->
-    <form class="contact-form"
-          action="https://docs.google.com/forms/d/e/PASTE_YOUR_FORM_ID/formResponse"
-          method="POST" target="_blank">
+    <form class="contact-form" id="contact-form">
       <div class="form-grid">
         <label>Name
-          <input type="text" name="entry.1111111111" required autocomplete="name">
+          <input type="text" name="entry.1541390701" required autocomplete="name">
         </label>
         <label>Email
-          <input type="email" name="entry.2222222222" required autocomplete="email">
+          <input type="email" name="entry.1999321382" required autocomplete="email">
         </label>
       </div>
       <label>I'm interested in
-        <select name="entry.3333333333" required>
+        <select name="entry.167397766" required>
           <option value="" disabled selected>Select one…</option>
           <option value="Research Fellowship">Research Fellowship</option>
           <option value="Short Course — Digital Interfaces">Short Course — Digital Interfaces</option>
@@ -486,10 +484,31 @@ footer a{color:#fff;text-decoration-color:var(--steel)}
         </select>
       </label>
       <label>Message
-        <textarea name="entry.4444444444" rows="5" required placeholder="If applying for a fellowship, tell us which programme and a little about your research background."></textarea>
+        <textarea name="entry.647754019" rows="5" required placeholder="If applying for a fellowship, tell us which programme and a little about your research background."></textarea>
       </label>
       <button class="btn solid form-btn" type="submit">Send message</button>
+      <p id="form-status" style="display:none;margin-top:16px;font-family:var(--mono);font-size:.82rem;letter-spacing:.08em;"></p>
     </form>
+    <script>
+      document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const status = document.getElementById('form-status');
+        const data = new FormData(form);
+        fetch('https://docs.google.com/forms/d/e/1FAIpQLSeiYxRql3wNF42Bt251QfgPTFLOs-RPNqzwH3X6dqHFQUv4gg/formResponse', {
+          method: 'POST',
+          mode: 'no-cors',
+          body: data
+        }).then(function() {
+          form.reset();
+          status.textContent = 'Message sent. We\'ll be in touch.';
+          status.style.display = 'block';
+        }).catch(function() {
+          status.textContent = 'Something went wrong. Please try again.';
+          status.style.display = 'block';
+        });
+      });
+    </script>
 
     <div class="contact-row">
       <div>
