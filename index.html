@@ -464,49 +464,10 @@ footer a{color:#fff;text-decoration-color:var(--steel)}
              2. Replace each entry.XXXXXXX with the matching entry ID.
            The dropdown options must match your Google Form options exactly.
          ============================================================ -->
-    <iframe name="hidden-form-target" style="display:none;" aria-hidden="true"></iframe>
-    <form class="contact-form" id="contact-form"
-          action="https://docs.google.com/forms/d/e/1FAIpQLSeiYxRql3wNF42Bt251QfgPTFLOs-RPNqzwH3X6dqHFQUv4gg/formResponse"
-          method="POST" target="hidden-form-target">
-      <div class="form-grid">
-        <label>Name
-          <input type="text" name="entry.923267052" required autocomplete="name">
-        </label>
-        <label>Email
-          <input type="email" name="entry.74477876" required autocomplete="email">
-        </label>
-      </div>
-      <label>I'm interested in
-        <select name="entry.1853351429" required>
-          <option value="" disabled selected>Select one…</option>
-          <option value="Research Fellowship">Research Fellowship</option>
-          <option value="Short Course — Digital Interfaces">Short Course — Digital Interfaces</option>
-          <option value="Short Course — Social Design">Short Course — Social Design</option>
-          <option value="Short Course — Designing Beyond the User">Short Course — Designing Beyond the User</option>
-          <option value="Research collaboration or partnership">Research collaboration or partnership</option>
-          <option value="Something else">Something else</option>
-        </select>
-      </label>
-      <label>Message
-        <textarea name="entry.2119463089" rows="5" required placeholder="If applying for a fellowship, tell us which programme and a little about your research background."></textarea>
-      </label>
-      <input type="hidden" name="fvv" value="1">
-      <input type="hidden" name="pageHistory" value="0">
-      <input type="hidden" name="fbzx" id="fbzx-field">
-      <button class="btn solid form-btn" type="submit">Send message</button>
-    </form>
-    <script>
-      document.getElementById('fbzx-field').value = Math.floor(Math.random() * 9e15);
-      document.getElementById('contact-form').addEventListener('submit', function(e) {
-        const form = e.target;
-        const status = document.getElementById('form-status');
-        setTimeout(function() {
-          form.reset();
-          status.textContent = 'Message sent. We\'ll be in touch.';
-          status.style.display = 'block';
-        }, 500);
-      });
-    </script>
+    <iframe src="https://sites.google.com/embodiedintelligence.in/embodied-intelligence-labs-llp/home?authuser=2"
+            style="width:100%;height:700px;border:none;margin-top:34px;"
+            title="Contact form"
+            loading="lazy"></iframe>
 
     <div class="contact-row">
       <div>
