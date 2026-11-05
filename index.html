@@ -3,153 +3,132 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Embodied Intelligence Labs LLP — A design-research lab</title>
-<meta name="description" content="Embodied Intelligence Labs LLP is an independent, practice-based design-research lab working at the intersection of design, computation, media arts, and the digital humanities. Our research programmes, digital incubation, and short courses.">
+<title>Embodied Intelligence Labs LLP — An interdisciplinary design research lab</title>
+<meta name="description" content="Embodied Intelligence Labs LLP is an interdisciplinary design research lab. We research cognition, computation, interaction and intelligence through projects in distributed cognition, collective intelligence, computational agents, and world modelling and simulation.">
 
 <!-- ============================================================
      EMBODIED INTELLIGENCE LABS LLP — single-page site
      HOW TO UPDATE:
        · All text lives in clearly marked sections below.
        · Colours & fonts: edit the CSS variables in :root.
-       · Add a programme: copy one <article class="prog"> block.
-       · Add a course:    copy one <article class="prog"> block in #courses.
-       · Add an output:   copy one <article class="pub"> block.
-       · Programme status: change the <span class="badge ..."> class & text.
+       · Add a research project: copy one <article class="prog"> block in #research.
+       · Add a publication:      copy one <li> in a <ul class="pub-list">.
+       · Programme status: edit the <p class="status"> line.
      ============================================================ -->
 
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23485971'/%3E%3Cg transform='translate(10 11) scale(.85)'%3E%3Cpath d='M26 9 L9 37 L43 37 Z' fill='none' stroke='%23EBE4D5' stroke-width='1.8' stroke-linejoin='round'/%3E%3Ccircle cx='26' cy='9' r='6' fill='%23EBE4D5'/%3E%3Ccircle cx='9' cy='37' r='5' fill='%23EBE4D5'/%3E%3Ccircle cx='43' cy='37' r='5' fill='%23EBE4D5'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,600;1,7..72,300;1,7..72,400&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 
 <style>
+/* Design system v1 (Sept 2026): paper ground, steel brand, Literata / Archivo / JetBrains Mono.
+   Lab site stays on Paper throughout. Ochre and Steel-deep sections are platform-only. */
 :root{
-  --ink:      #0E161E;
-  --slate:    #2C3C50;
-  --steel:    #738BA7;
-  --steel-dk: #46627F;
-  --steel-lt: #DEE6EE;
-  --paper:    #FFFFFF;
-  --paper-2:  #F6F8FA;
-  --rule:     #E3E8ED;
+  --paper:      oklch(0.975 0.005 250);
+  --paper-2:    oklch(0.945 0.006 250);
+  --ink:        oklch(0.22 0.012 250);
+  --ink-2:      oklch(0.48 0.010 250);
+  --rule:       oklch(0.875 0.006 250);
+  --accent:     oklch(0.46 0.045 258);
+  --accent-soft:oklch(0.93 0.014 258);
+  --steel-deep: oklch(0.40 0.042 258);
+  --bone:       oklch(0.92 0.022 85);
 
-  --serif: "IBM Plex Serif", Georgia, serif;
-  --sans:  "IBM Plex Sans", system-ui, sans-serif;
-  --mono:  "IBM Plex Mono", ui-monospace, monospace;
+  --serif: 'Literata', Georgia, serif;
+  --sans:  'Archivo', 'Helvetica Neue', Helvetica, sans-serif;
+  --mono:  'JetBrains Mono', ui-monospace, monospace;
 
-  --max: 1080px;
+  --max: 1180px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased}
-.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
-a{color:var(--slate);text-decoration-color:var(--steel);text-underline-offset:3px}
-a:hover{color:var(--steel)}
-a:focus-visible,button:focus-visible{outline:2px solid var(--steel);outline-offset:3px;border-radius:2px}
+body{font-family:var(--serif);color:var(--ink);background:var(--paper);line-height:1.65;font-size:18px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid color-mix(in oklab,var(--accent) 35%,transparent)}
+a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+em{font-style:italic}
 
-/* header / nav */
-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand{font-family:var(--mono);font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);text-decoration:none}
-.brand b{color:var(--steel-dk)}
-nav ul{display:flex;gap:24px;list-style:none}
-nav a{font-size:.86rem;font-weight:500;text-decoration:none;color:var(--slate)}
-@media(max-width:780px){nav ul{gap:14px}nav a{font-size:.76rem}.brand span{display:none}}
+/* header / nav: sticky, paper ground, single hairline */
+header{position:sticky;top:0;z-index:10;background:color-mix(in oklab,var(--paper) 94%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+a.brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:16px;color:var(--ink);border:0;letter-spacing:-.01em}
+a.brand:hover{color:var(--ink)}
+.brand svg{width:32px;height:28px;overflow:visible;flex:none}
+.brand strong{font-weight:600}
+nav ul{display:flex;gap:26px;list-style:none}
+nav a{font-family:var(--sans);font-size:14px;font-weight:500;color:var(--ink);border:0}
+nav a:hover{color:var(--accent)}
+nav a.ext::after{content:" \2197"}
+@media(max-width:780px){nav ul{gap:16px}nav a{font-size:13px}.brand span{display:none}}
 
 /* hero */
 .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--rule)}
-.hero .wrap{padding-top:96px;padding-bottom:96px;position:relative;z-index:1}
-.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);margin-bottom:22px}
-h1{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,5vw,3.4rem);line-height:1.14;letter-spacing:-.01em;max-width:20ch}
-h1 em{font-style:italic;color:var(--steel-dk)}
-.lede{margin-top:28px;max-width:60ch;font-size:1.1rem;color:var(--slate)}
+.hero .wrap{padding-top:112px;padding-bottom:104px;position:relative;z-index:1}
+.eyebrow{font-family:var(--sans);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);margin-bottom:28px}
+h1{font-family:var(--serif);font-weight:300;font-size:clamp(34px,5.2vw,62px);line-height:1.06;letter-spacing:-.02em;max-width:19ch;text-wrap:pretty}
+h1 em{font-style:italic}
+.lede{margin-top:32px;max-width:62ch;font-size:19px;line-height:1.6;color:var(--ink-2);text-wrap:pretty}
 .lede strong{color:var(--ink);font-weight:600}
-.hero-cta{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap}
-.btn{display:inline-block;font-family:var(--mono);font-size:.82rem;letter-spacing:.05em;padding:13px 22px;border:1px solid var(--ink);text-decoration:none;color:var(--ink);transition:background .15s,color .15s}
-.btn:hover{background:var(--ink);color:#fff}
-.btn.solid{background:var(--ink);color:#fff}
-.btn.solid:hover{background:var(--slate);border-color:var(--slate)}
-.net{position:absolute;right:-40px;top:0;height:100%;width:min(52vw,560px);opacity:.5;pointer-events:none}
-@media(max-width:860px){.net{opacity:.16;width:100%;right:0}}
+.hero-cta{margin-top:44px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;font-family:var(--sans);font-size:14px;font-weight:500;letter-spacing:.01em;padding:13px 24px;background:transparent;color:var(--ink);border:1px solid var(--rule);cursor:pointer;transition:border-color .15s,background .15s}
+.btn:hover{border-color:var(--ink);color:var(--ink)}
+.btn.solid{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn.solid:hover{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.net{position:absolute;right:-40px;top:0;height:100%;width:min(52vw,560px);opacity:.55;pointer-events:none}
+@media(max-width:860px){.net{opacity:.14;width:100%;right:0}}
 
-/* sections */
-section{padding:84px 0;border-bottom:1px solid var(--rule)}
-section.alt{background:var(--paper-2)}
-.sec-label{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);margin-bottom:14px}
-h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.01em;margin-bottom:22px;max-width:26ch}
-.prose{max-width:66ch;color:var(--slate)}
+/* sections: paper throughout, hairline rules */
+section{padding:96px 0;border-bottom:1px solid var(--rule)}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:22px}
+.sec-num{font-family:var(--mono);font-size:12px;color:var(--accent)}
+.sec-label{font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+h2{font-family:var(--serif);font-weight:300;font-size:clamp(28px,3.6vw,40px);line-height:1.1;letter-spacing:-.018em;margin-bottom:28px;max-width:20ch;text-wrap:pretty}
+.prose{max-width:62ch;color:var(--ink-2)}
 .prose p+p{margin-top:1em}
-.prose strong{color:var(--ink)}
+.prose strong{color:var(--ink);font-weight:600}
+.sub-label{font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin:72px 0 28px}
 
-/* programme / course cards */
-.progs{margin-top:46px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px}
-.progs-anchor{margin-top:46px}
-.progs-pair{margin-top:26px;grid-template-columns:1fr 1fr}
-@media(max-width:720px){.progs-pair{grid-template-columns:1fr}}
-@media(min-width:760px){.prog-wide p{max-width:80ch}}
-.prog{border:1px solid var(--rule);background:var(--paper);padding:30px 28px;display:flex;flex-direction:column}
-.alt .prog{background:var(--paper)}
-.prog .top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
-.prog .tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--steel);margin-bottom:12px}
-.badge{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border:1px solid var(--rule);color:var(--slate)}
-.badge.active{background:var(--ink);color:#fff;border-color:var(--ink)}
-.badge.developing{background:var(--steel-lt);color:var(--steel-dk);border-color:var(--steel-lt)}
-.badge.nascent{background:transparent;color:var(--steel)}
-.prog h3{font-family:var(--serif);font-size:1.2rem;font-weight:600;line-height:1.3}
-.prog p{font-size:.95rem;color:var(--slate);margin-top:12px}
-.prog .focus{margin-top:18px;padding-top:16px;border-top:1px solid var(--rule);list-style:none}
-.prog .focus li{font-family:var(--mono);font-size:.78rem;color:var(--slate);padding:3px 0;letter-spacing:.01em}
-.prog .meta{margin-top:18px;font-family:var(--mono);font-size:.8rem;color:var(--slate);border-top:1px solid var(--rule);padding-top:12px}
-
-/* simple two-column intro for incubation/courses */
-.note{margin-top:22px;max-width:64ch;color:var(--slate)}
-.note li{margin:9px 0 9px 1.2em}
-
-/* programme card with top image (pair cards only) */
-.prog-plate{padding:0}
-.prog-plate img{width:100%;aspect-ratio:600/440;display:block;border-bottom:1px solid var(--rule)}
-.prog-plate .prog-body{padding:30px 28px;display:flex;flex-direction:column;flex:1}
-
-/* shared two-column text-left / image-right layout */
-.split-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+/* programme + project cards: a 2px ink rule with content hanging beneath, no boxes */
+.split-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
 .split-grid figure{margin:0;border:1px solid var(--rule)}
 .split-grid figure img{width:100%;aspect-ratio:600/440;display:block}
-@media(max-width:720px){.split-grid{grid-template-columns:1fr}}
-/* programme outputs inline */
-.prog-output{
-  margin-top:18px;padding-top:14px;border-top:1px solid var(--rule);
-  font-size:.86rem;color:var(--slate);line-height:1.7;
-}
-.out-label{
-  display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--steel);margin-bottom:7px;
-}
-.out-review{font-style:italic;color:var(--steel)}
-/* publications */
-.pubs{margin-top:44px;display:grid;gap:0;border-top:1px solid var(--rule)}
-.pub{padding:24px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:90px 1fr;gap:22px;align-items:baseline}
-.pub .year{font-family:var(--mono);font-size:.85rem;color:var(--steel)}
-.pub h3{font-family:var(--serif);font-size:1.06rem;font-weight:600;line-height:1.4}
-.pub p{font-size:.92rem;color:var(--slate);margin-top:5px}
-.pub a{font-size:.88rem}
-@media(max-width:600px){.pub{grid-template-columns:1fr;gap:4px}}
+@media(max-width:820px){.split-grid{grid-template-columns:1fr;gap:36px}}
+.prog{border-top:2px solid var(--ink);padding-top:22px}
+.prog h3{font-family:var(--serif);font-size:22px;font-weight:600;line-height:1.3}
+.prog p{font-size:16px;line-height:1.7;color:var(--ink-2);margin-top:12px;max-width:62ch;text-wrap:pretty}
+.prog p strong{color:var(--ink);font-weight:600}
+.prog .status{font-family:var(--mono);font-size:12px;color:var(--ink-2);margin-bottom:10px}
+.prog-fig{margin:0 0 24px;border:1px solid var(--rule)}
+.prog-fig img{width:100%;aspect-ratio:600/440;display:block}
+.progs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:56px 48px}
 
-/* contact / footer */
-footer{padding:70px 0 50px;background:var(--ink);color:var(--steel-lt)}
-footer h2{color:#fff}
-footer a{color:#fff;text-decoration-color:var(--steel)}
+/* citation lines: mono, title first, venue second */
+.pub-list{list-style:none;margin-top:6px}
+.pub-list li{padding:18px 0;border-top:1px solid var(--rule);font-family:var(--mono);font-size:12px;line-height:1.7;color:var(--ink-2)}
+.pub-list a{font-family:var(--mono)}
+.pub-list .venue{display:block}
+.pub-list .pub-desc{display:block;margin-top:8px;font-family:var(--serif);font-size:15px;line-height:1.65;color:var(--ink-2)}
+.out-label{display:block;font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin-top:30px}
+.out-review{display:block;font-family:var(--mono);font-size:12px;color:var(--ink-2);padding-top:18px;border-top:1px solid var(--rule)}
+
+/* contact: underline fields only */
 .contact-form{max-width:560px;margin-top:34px}
-.contact-form label{display:block;font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);margin-bottom:18px}
-.contact-form input,.contact-form textarea,.contact-form select{display:block;width:100%;margin-top:7px;padding:12px 14px;background:#15202B;border:1px solid var(--slate);color:#fff;font-family:var(--sans);font-size:.95rem;border-radius:0}
-.contact-form select{appearance:none;-webkit-appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23738BA7' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
-.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{outline:2px solid var(--steel);outline-offset:1px}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.contact-form label{display:block;font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin-bottom:26px}
+.contact-form input,.contact-form textarea,.contact-form select{display:block;width:100%;margin-top:6px;padding:12px 0;background:transparent;border:0;border-bottom:1px solid var(--rule);color:var(--ink);font-family:var(--sans);font-size:16px;letter-spacing:0;text-transform:none;border-radius:0;outline:none;resize:vertical}
+.contact-form textarea{line-height:1.6}
+.contact-form select{appearance:none;-webkit-appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='none' stroke='%23485971' stroke-width='1.4' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 2px center;padding-right:28px}
+.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{border-bottom-color:var(--accent)}
+.contact-form ::placeholder{color:var(--ink-2);opacity:.7}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
 @media(max-width:560px){.form-grid{grid-template-columns:1fr}}
-.form-btn{border-color:#fff;background:#fff;color:var(--ink);cursor:pointer}
-.form-btn:hover{background:var(--steel-lt);border-color:var(--steel-lt);color:var(--ink)}
-.contact-row{display:flex;flex-wrap:wrap;gap:34px;margin-top:40px;font-size:.95rem}
-.contact-row .lbl{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);display:block;margin-bottom:6px}
-.legal{margin-top:56px;padding-top:22px;border-top:1px solid #2C3C50;font-family:var(--mono);font-size:.76rem;letter-spacing:.04em;color:var(--steel);line-height:2}
+#form-status{display:none;margin-bottom:28px;font-family:var(--mono);font-size:12px;padding:14px 18px;background:var(--accent-soft);color:var(--ink);border-left:2px solid var(--accent)}
+.contact-row{display:flex;flex-wrap:wrap;gap:40px;margin-top:56px;font-size:16px}
+.contact-row .lbl{font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);display:block;margin-bottom:6px}
+footer{padding:96px 0 56px}
+.legal{margin-top:72px;padding-top:24px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:11px;color:var(--ink-2);line-height:2}
 </style>
 </head>
 <body>
@@ -157,13 +136,16 @@ footer a{color:#fff;text-decoration-color:var(--steel)}
 <!-- ================= NAV ================= -->
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top">Embodied <b>Intelligence</b> <span>Labs LLP</span></a>
+    <a class="brand" href="#top"><svg viewBox="0 0 52 46" aria-hidden="true">
+        <path d="M26 9 L9 37 L43 37 Z" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linejoin="round"></path>
+        <circle cx="26" cy="9" r="6" fill="var(--bone)" stroke="var(--accent)" stroke-width="1.6"></circle>
+        <circle cx="9" cy="37" r="5" fill="var(--accent)"></circle>
+        <circle cx="43" cy="37" r="5" fill="var(--accent)"></circle>
+      </svg><span>Embodied <strong>Intelligence</strong> Labs</span></a>
     <nav aria-label="Sections">
       <ul>
-        <li><a href="#programmes">Research</a></li>
-        <li><a href="#courses">Short&nbsp;Courses</a></li>
-        <li><a href="#open-calls">Open&nbsp;Calls</a></li>
-        <li><a href="#incubation">Incubation</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#learning">Learning&nbsp;Platform</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -176,30 +158,31 @@ footer a{color:#fff;text-decoration-color:var(--steel)}
 <div class="hero">
   <!-- Signature motif: a connectionist network — the lab's figure for distributed, connected cognition -->
   <svg class="net" viewBox="0 0 560 520" aria-hidden="true" fill="none">
-    <g stroke="#738BA7" stroke-width="1">
+    <g stroke="var(--accent)" stroke-width="1">
       <path d="M120 90 L260 150 L410 80 M260 150 L200 290 L80 250 M200 290 L340 320 L410 80 M340 320 L470 230 L410 80 M470 230 L500 400 M340 320 L300 450 L160 420 L200 290 M80 250 L160 420 M120 90 L80 250 M300 450 L500 400"/>
     </g>
-    <g fill="#FFFFFF" stroke="#2C3C50" stroke-width="1.4">
+    <g fill="var(--paper)" stroke="var(--ink)" stroke-width="1.4">
       <circle cx="120" cy="90" r="7"/><circle cx="410" cy="80" r="10"/>
       <circle cx="80" cy="250" r="8"/><circle cx="200" cy="290" r="12"/>
       <circle cx="470" cy="230" r="7"/><circle cx="160" cy="420" r="8"/>
       <circle cx="300" cy="450" r="9"/><circle cx="500" cy="400" r="6"/>
     </g>
-    <g fill="#738BA7"><circle cx="260" cy="150" r="6"/><circle cx="340" cy="320" r="7"/></g>
+    <g fill="var(--accent)"><circle cx="260" cy="150" r="6"/><circle cx="340" cy="320" r="7"/></g>
   </svg>
 
   <div class="wrap">
-    <p class="eyebrow">An independent design-research lab</p>
+    <p class="eyebrow">An interdisciplinary design research lab</p>
     <h1>Intelligence isn't locked in the mind or the machine. It is <em>enacted</em> across bodies, artefacts, and environments.</h1>
     <p class="lede">
-      Embodied Intelligence Labs LLP is an independent, practice-based design-research
-      lab working at the intersection of <strong>design, computation, media arts, and
-      the digital humanities</strong>. We pursue research programmes, run a digital
-      incubation, and teach short courses.
+      Embodied Intelligence Labs LLP is an interdisciplinary design research lab. We work
+      where the study of minds and machines meets the design of the systems people live
+      with: <strong>computer and cognitive science, digital theory and the digital
+      humanities</strong> on one side; <strong>collective intelligence, generative design
+      and systems design</strong> on the other.
     </p>
     <div class="hero-cta">
-      <a class="btn solid" href="#courses">Short Courses</a>
-      <a class="btn" href="#incubation">Digital Incubation</a>
+      <a class="btn solid" href="#research">Our Research</a>
+      <a class="btn" href="#learning">Learning Platform</a>
     </div>
   </div>
 </div>
@@ -207,252 +190,162 @@ footer a{color:#fff;text-decoration-color:var(--steel)}
 <!-- ================= ABOUT / ORIENTING POSITION ================= -->
 <section id="about">
   <div class="wrap">
-    <p class="sec-label">About the lab</p>
-    <h2>Research Orientation.</h2>
+    <div class="sec-head"><span class="sec-num">01</span><span class="sec-label">About the lab</span></div>
+    <h2>Research orientation.</h2>
     <div class="prose">
       <p>
-        We take one stance across all of our work: that intelligence, cognition, and
-        computation are not confined to the individual mind or the digital machine. They
-        are enacted in real time across bodies, artefacts, social arrangements, and
-        material environments. Our research programmes carry this commitment into
-        post-cognitive, post-human, phenomenological, and spatial registers.
+        We work from one position: intelligence, cognition and computation are not
+        confined to the individual mind or the digital machine. They are produced in real
+        time, across people, artefacts, software and the environments they share.
       </p>
       <p>
-        The lab is founded and led by <strong>Abhay Vohra</strong> — a systemic designer
-        and design researcher with more than twenty-five years in interface and
-        interaction design, a full-time researcher since 2023, and visiting faculty at
-        top design universities in India.
+        In our work, <em>digital</em> covers computer and cognitive science, digital theory
+        and the digital humanities: how computation works, what it does to knowledge, and
+        how it can be studied critically. <em>Design</em> covers digital, social and
+        collective intelligence, generative design and systems design: how that
+        understanding becomes systems, tools and artefacts. Our research projects study
+        cognition, computation, interaction, intelligence, awareness, presence and
+        simulation where these fields meet. We build working systems and use them as
+        instruments of inquiry.
       </p>
-
+      <p>
+        The lab is founded and led by <strong>Abhay Vohra</strong>, a systemic designer
+        and design researcher with more than twenty-five years in interface and
+        interaction design. He has been a full-time researcher since 2023 and is visiting
+        faculty at leading design universities in India.
+      </p>
     </div>
   </div>
 </section>
 
-<!-- ================= RESEARCH PROGRAMMES ================= -->
-<section id="programmes" class="alt">
+<!-- ================= RESEARCH ================= -->
+<section id="research">
   <div class="wrap">
-    <p class="sec-label">Research programmes</p>
+    <div class="sec-head"><span class="sec-num">02</span><span class="sec-label">Research programme</span></div>
     <h2>Our research.</h2>
 
-    <!-- Anchor programme — two-column: text left, image right -->
+    <!-- Programme — two-column: text left, image right -->
     <div class="progs-anchor">
-      <article class="prog prog-wide split-grid" style="border:1px solid var(--rule);background:var(--paper);padding:30px 28px">
+      <article class="prog split-grid">
         <div>
-          <div class="top">
-            <span class="badge active">Active · anchor</span>
-          </div>
-          <h3>Post-Cognitive Design &amp; Computing</h3>
+          <p class="status">Active · founding programme</p>
+          <h3>Embodied Intelligence</h3>
           <p>
             Our founding programme. It studies how cognition and computation extend beyond
-            the individual mind and the digital machine — across people, artefacts, and
-            environments — and how knowledge is represented and encoded in data, with a view
-            to designing computational systems inspired by collective cognition. It also
-            relates phenomenological philosophy to computation: how computational artefacts
-            mediate perception and action, and where the formal, representational account of
-            machine intelligence reaches its limits.
+            the individual mind and the single machine. They are spread across people,
+            artefacts, software agents and environments. The programme asks how knowledge
+            is encoded in data, models and running systems, and how that understanding can
+            inform computational systems modelled on collective cognition. It treats
+            computation as a way of finding things out, not only as calculation. We build
+            agents, models and simulations, observe how they act and what they come to
+            &ldquo;know&rdquo;, and note where formal, representational accounts of machine
+            intelligence reach their limits.
           </p>
-          <div class="prog-output">
-            <span class="out-label">Research outcomes</span>
-            <a href="https://rsdsymposium.org/systemic-design-through-the-lens-of-distributed-cognition/">Systemic Design Through the Lens of Distributed Cognition</a> · RSD13 Proceedings, 2024<br>
-            <a href="assets/Vohra_Simulating-AI-enabled-Services_Touchpoint-11-2.pdf">Simulating AI-enabled Services Using a Human Element</a> · Touchpoint Vol. 11 No. 2, 2020<br>
-            Embodied Intelligence: Alternative Computing Practices for a Contingent World · Workshop accepted at EKSIG 2025<br>
-            <span class="out-review">Further work under peer review.</span>
-          </div>
         </div>
-        <figure style="margin:0;border:1px solid var(--rule)">
-          <img src="plates/plate-cognition.svg" alt="Distributed cognition network diagram" style="width:100%;aspect-ratio:600/440;display:block">
+        <figure>
+          <img src="plates/plate-cognition.svg" alt="Distributed cognition network diagram">
         </figure>
       </article>
     </div>
 
-    <!-- Two programmes, side by side -->
-    <div class="progs progs-pair">
-      <article class="prog prog-plate">
-        <img src="plates/plate-phenomenology.svg" alt="Perception and de-centring diagram">
-        <div class="prog-body">
-          <div class="top">
-            <span class="badge developing">Developing</span>
-          </div>
-          <h3>Post-Human Design &amp; Computing</h3>
-          <p>
-            Methods to bring post-human and new-materialist thought to bear on computation
-            and design. Its provocation is to de-centre the human — to move from designing
-            <em>for</em> users toward designing <em>with</em> a multitude of human and
-            non-human entities.
-          </p>
-          <div class="prog-output">
-            <span class="out-label">Research outcomes</span>
-            Rethinking Design in the Anthropocene · Workshop submitted to India HCI 2025
-          </div>
+    <!-- Research projects -->
+    <p class="sub-label">Research projects</p>
+    <div class="progs">
+      <article class="prog">
+        <figure class="prog-fig"><img src="plates/plate-phenomenology.svg" alt="Eye, lens and scattered points: perception and cognition diagram"></figure>
+        <h3>Computing, Cognition and Intelligence</h3>
+        <p>
+          How does intelligence arise when cognition is spread across people, tools and
+          machines? This project draws on <strong>Distributed Cognition</strong> and
+          <strong>Collective Intelligence</strong> to study thinking as something systems
+          do together, not something located in one head or one processor. It looks at how
+          meaning and knowledge move through people, artefacts and computational agents. It
+          also asks how systemic design can use that understanding, so that computational
+          systems work with the cognitive ecologies they enter instead of replacing them.
+        </p>
+        <div>
+          <span class="out-label">Project publications</span>
+          <ul class="pub-list">
+            <li>
+              <a href="https://rsdsymposium.org/systemic-design-through-the-lens-of-distributed-cognition/">Systemic Design Through the Lens of Distributed Cognition</a><span class="venue">RSD13 Proceedings, 2024</span>
+              <span class="pub-desc">Theorises the systemic design team as a distributed cognitive system. Its shared maps and models extend thinking into the environment, and collective intelligence emerges as the team self-organises.</span>
+            </li>
+            <li>
+              <strong>Diegetic Agents</strong><span class="venue">Developing</span>
+              <span class="pub-desc">A practice-based study of computational agents, read through digital theory. It treats computation as a method of inquiry, not calculation, and asks whether what an agent knows is produced by its history of interaction rather than contained in its starting program.</span>
+            </li>
+            <li>
+              Embodied Intelligence: Alternative Computing Practices for a Contingent World<span class="venue">Workshop accepted at EKSIG 2025</span>
+              <span class="pub-desc">Proposes embodied computing as an alternative to digital symbol processing: situated computation, enacted through body and mind, that transforms a material situation, as in folding, knitting or embroidery. Participants design and perform their own embodied computing processes, which matter most in contingent situations where digital technology fails.</span>
+            </li>
+          </ul>
         </div>
       </article>
 
-      <article class="prog prog-plate">
-        <img src="plates/plate-spatial.svg" alt="Relational city plan diagram">
-        <div class="prog-body">
-          <div class="top">
-            <span class="badge active">Active</span>
-          </div>
-          <h3>Socio-Spatial Design &amp; Computing</h3>
-          <p>
-            Grounded in critical geography and non-representational theory, this programme
-            reads space not as a fixed backdrop but as relational — continuously produced
-            through practice, negotiation, and movement. It studies the planned city as a
-            <em>lived, relational</em> system, sustained by informal, embodied, and
-            negotiated practices that formal plans alone cannot account for.
-          </p>
-          <div class="prog-output">
-            <span class="out-label">Research outcomes</span>
-            <a href="https://rsdsymposium.org/navigating-urban-space-chandigarh">Navigating Urban Space: Chandigarh</a> · RSDx session, RSD14, 2025
-          </div>
+      <article class="prog">
+        <figure class="prog-fig"><img src="plates/plate-spatial.svg" alt="Grid model with traced curves: modelling and simulation diagram"></figure>
+        <h3>World Modelling and Simulation</h3>
+        <p>
+          How can computation help us model the systems we live and work within, and learn
+          from where those models fail? This project treats modelling and simulation as
+          research methods, not only as engineering tools. People build models and
+          simulations of complex systems, change them and observe what happens. The aim is
+          to externalise tacit and embodied knowledge and to show what resists
+          formalisation. The work moves from prototyping services with people acting in
+          place of the machine to participatory, Computational Intelligence-assisted
+          simulations of traditional craft.
+        </p>
+        <div>
+          <span class="out-label">Project publications</span>
+          <ul class="pub-list">
+            <li>
+              <a href="https://rsdsymposium.org/from-representation-to-simulation/">From Representation to Simulation: Computation as a Mode of Generative Design Research</a><span class="venue">RSD15 Proceedings, 2026 · with Mamta Gautam</span>
+              <span class="pub-desc">Uses Computational Intelligence to turn representations of traditional craft into formal models and live parametric simulations. Proposes a recursive framework of <em>Representation</em>, <em>Model and Simulation</em>, and <em>Reflection</em>, in which what a simulation fails to capture becomes material for inquiry.</span>
+            </li>
+            <li>
+              <a href="assets/Vohra_Simulating-AI-enabled-Services_Touchpoint-11-2.pdf">Simulating AI-enabled Services Using a Human Element</a><span class="venue">Touchpoint Vol. 11 No. 2, 2020</span>
+              <span class="pub-desc">Shows how service designers can prototype complex AI-enabled services by having a human perform the machine's role, using Wizard of Oz and concierge methods. Illustrated through a food-delivery service for people with special dietary needs.</span>
+            </li>
+          </ul>
+          <span class="out-review">Further work under peer review.</span>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ================= SHORT COURSES ================= -->
-<section id="courses">
+<!-- ================= LEARNING PLATFORM ================= -->
+<section id="learning">
   <div class="wrap">
     <div class="split-grid">
       <div>
-        <p class="sec-label">Short courses</p>
-        <h2>Learn to apply cutting-edge research to your creative practice.</h2>
+        <div class="sec-head"><span class="sec-num">03</span><span class="sec-label">Learning Platform</span></div>
+        <h2>Learn and research with us.</h2>
         <div class="prose">
           <p>
-            Our short courses are drawn directly from our cutting-edge, practice-based research programmes — live thinking, not a settled curriculum.
-            The aim is to learn how to apply these methods to your own creative practice — tracing the social, cognitive, and material contexts that surround your work. This matters more, not less, in an age when AI can generate fluent, plausible work in any style: knowing your own contexts and commitments is what keeps a subjective signature in your work, so it remains unmistakably yours.
+            <a href="https://interembodiedlabs.org" target="_blank" rel="noopener">InterEmbodiedLabs.org</a>
+            is the hub for all our research programmes. It hosts our learning platform, with
+            short research modules drawn from live research, and our incubation platform for
+            early-career design researchers and creative practitioners.
           </p>
-          <p>
-            Each course is <strong>project-based</strong>, built around a piece of work you
-            carry through from question to outcome rather than a fixed syllabus delivered to
-            a calendar, over a duration of <strong>four to twelve weeks</strong>.
-            Eligibility is open to students who have completed at least six semesters of a
-            bachelor's programme, those enrolled in a master's programme, and research
-            scholars.
-          </p>
+        </div>
+        <div class="hero-cta" style="margin-top:36px">
+          <a class="btn solid" href="https://interembodiedlabs.org" target="_blank" rel="noopener">Go to InterEmbodied</a>
         </div>
       </div>
       <figure>
         <img src="plates/plate-courses.svg" alt="Three interlocking research territories diagram">
       </figure>
     </div>
-
-    <div class="progs">
-      <article class="prog">
-        <h3>Post-Cognitive Design &amp; Computing: Digital Interfaces</h3>
-        <p>
-          Based on our Post-Cognitive Design &amp; Computing programme. The
-          digital interface treated not as a screen to be designed, but as a site
-          where social, technical, and material forces meet — bound together by
-          causal relationships and feedback loops. For practitioners moving beyond
-          user-centred heuristics toward a systems-thinking orientation.
-        </p>
-        <p class="meta">4–12 weeks · project-based</p>
-      </article>
-
-      <article class="prog">
-        <h3>Socio-Spatial Design &amp; Computing: Social Design</h3>
-        <p>
-          Based on our Socio-Spatial Design &amp; Computing programme. Social
-          influence studied as a systemic phenomenon — the causal relationships and
-          feedback loops it generates, and the ecosystems it is embedded in. Gives
-          practitioners conceptual and practical tools for working with complex social
-          systems.
-        </p>
-        <p class="meta">4–12 weeks · project-based</p>
-      </article>
-
-      <article class="prog">
-        <h3>Post-Human Design &amp; Computing: Designing Beyond the User</h3>
-        <p>
-          Based on our Post-Human Design &amp; Computing programme. A practice-based
-          introduction to post-human and new-materialist methods in design — moving from
-          designing <em>for</em> a human user toward designing <em>with</em> the multitude
-          of human and non-human entities a system actually involves. Equips practitioners
-          to ask who and what a design decision affects beyond its intended user.
-        </p>
-        <p class="meta">4–12 weeks · project-based</p>
-      </article>
-    </div>
-
-    <div class="hero-cta" style="margin-top:36px">
-      <a class="btn solid" href="#contact">Enquire</a>
-    </div>
   </div>
 </section>
-
-<!-- ================= OPEN CALLS ================= -->
-<section id="open-calls" class="alt">
-  <div class="wrap">
-    <div class="split-grid">
-      <div>
-        <p class="sec-label">Open calls</p>
-        <h2>Participate in our research programmes.</h2>
-        <div class="prose">
-          <p>
-            Inspired by the open-source model, we post research call abstracts and calls for
-            participation in our LinkedIn community, <strong>interembodied</strong>. Anyone is
-            welcome to take up an open call, or propose a project of their own for our
-            guidance.
-          </p>
-          <p>
-            There is no application, no fee, and no fixed term. It is where ideas get tested
-            before they grow into full-fledged research programmes.
-          </p>
-        </div>
-        <div class="hero-cta" style="margin-top:36px">
-          <a class="btn solid" href="https://www.linkedin.com/groups/14720112/" target="_blank" rel="noopener">Follow Interembodied on LinkedIn</a>
-        </div>
-      </div>
-      <figure style="border:none">
-        <img src="plates/plate-field.svg" alt="Field diagram — the lab's research landscape">
-      </figure>
-    </div>
-  </div>
-</section>
-<!-- ================= DIGITAL INCUBATION ================= -->
-<section id="incubation">
-  <div class="wrap">
-    <div class="split-grid">
-      <div>
-        <p class="sec-label">Digital incubation</p>
-        <h2>Join our Digital Incubation programme.</h2>
-        <div class="prose">
-          <p>
-            We invite creative practitioners — design researchers, creative technologists,
-            media artists, architects, and social science practitioners — into a distributed,
-            short-term incubation built around a specific line of inquiry. Each cohort is
-            <strong>application-based</strong> and investigates a different question; participants
-            are paired with a collaborator from the lab and supported through mentorship,
-            showcases, and academic outputs. As a participant you can expect:
-          </p>
-        </div>
-        <ul class="note">
-          <li>a collaborator paired to complement your own skill set, plus ongoing mentorship from the lab;</li>
-          <li>support to show your work at festivals, and co-authorship on papers for international conferences where the work supports it;</li>
-          <li>full creative control over the artefact you make — the medium is yours to choose.</li>
-        </ul>
-        <p class="meta">Now open: Traces of Intelligence</p>
-        <div class="hero-cta" style="margin-top:36px">
-          <a class="btn solid" href="#contact">Apply to the incubation</a>
-        </div>
-      </div>
-      <figure>
-        <img src="plates/plate-incubation-current.png" alt="Traces of Intelligence — current Digital Incubation cohort">
-      </figure>
-    </div>
-  </div>
-</section>
-
-
 
 <!-- ================= CONTACT / FOOTER ================= -->
 <footer id="contact">
   <div class="wrap">
-    <p id="form-status" style="display:none;margin-bottom:16px;font-family:var(--mono);font-size:.82rem;letter-spacing:.08em;padding:14px 18px;background:var(--steel-lt);color:var(--ink);"></p>
-    <p class="sec-label">Contact</p>
-    <h2>Apply, enrol, or start a conversation.</h2>
+    <p id="form-status" role="status"></p>
+    <div class="sec-head"><span class="sec-num">04</span><span class="sec-label">Contact</span></div>
+    <h2>Start a conversation.</h2>
 
     <!-- ============================================================
          CONTACT — GOOGLE FORM
@@ -477,18 +370,15 @@ footer a{color:#fff;text-decoration-color:var(--steel)}
       <label>I'm interested in
         <select name="interest" required>
           <option value="" disabled selected>Select one…</option>
-          <option value="Digital Incubation Program">Digital Incubation Program</option>
-          <option value="Short Course — Digital Interfaces">Short Course — Digital Interfaces</option>
-          <option value="Short Course — Social Design">Short Course — Social Design</option>
-          <option value="Short Course — Designing Beyond the User">Short Course — Designing Beyond the User</option>
-          <option value="Research collaboration or partnership">Research collaboration or partnership</option>
-          <option value="Something else">Something else</option>
+          <option value="Research Partnership and Collaboration">Research Partnership and Collaboration</option>
+          <option value="Learning Platform">Learning Platform</option>
+          <option value="Something Else">Something Else</option>
         </select>
       </label>
       <label>Message
-        <textarea name="message" rows="5" required placeholder="Tell us a little about your background and what you're working on."></textarea>
+        <textarea name="message" rows="5" required placeholder="Tell us a little about yourself and what you'd like to explore together."></textarea>
       </label>
-      <button class="btn solid form-btn" type="submit">Send message</button>
+      <button class="btn solid" type="submit">Send message</button>
     </form>
     <script>
       document.getElementById('contact-form').addEventListener('submit', function(e) {
@@ -496,7 +386,7 @@ footer a{color:#fff;text-decoration-color:var(--steel)}
         const form = e.target;
         const status = document.getElementById('form-status');
         const data = new FormData(form);
-        fetch('https://script.google.com/macros/s/AKfycbz7aCoYnNKfhgKXUZC7rxhVtslkxvyOMVoMN7daw8dYmU-MNT3hdHDjK_zANizsn0-_6g/exec', {
+        fetch('https://script.google.com/macros/s/AKfycbxKeTVxXN8mDqBbd1zJkmE0OerHvwEspU80a2JwWSalJc2UQi5yGyNoG6eMKd8AgfHjFg/exec', {
           method: 'POST',
           body: data,
           mode: 'no-cors'
@@ -517,8 +407,8 @@ footer a{color:#fff;text-decoration-color:var(--steel)}
         <a href="https://www.linkedin.com/company/embodied-intelligence-lab/">Embodied Intelligence Labs</a>
       </div>
       <div>
-        <span class="lbl">Instagram</span>
-        <a href="https://www.instagram.com/interembodied/">@interembodied</a>
+        <span class="lbl">InterEmbodied</span>
+        <a href="https://interembodiedlabs.org" target="_blank" rel="noopener">interembodiedlabs.org &#8599;</a>
       </div>
     </div>
 
